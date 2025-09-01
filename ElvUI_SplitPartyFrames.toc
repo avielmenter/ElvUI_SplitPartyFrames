@@ -1,0 +1,9 @@
+## Interface: 11200
+## Title: |cff1784d1ElvUI|r Split Party Frames
+## Author: Avi
+## Version: 1.0.0
+## Notes: Move ElvUI party frames individually
+## RequiredDeps: ElvUI
+## DefaultState: Enabled
+
+ElvUI_SplitPartyFrames.lua
