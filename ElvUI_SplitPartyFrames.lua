@@ -34,16 +34,18 @@ end
 
 -- Create holders and movers
 local function ensureHolders()
-    if created then return end
     for i = 1, 5 do
-        local holder = CreateFrame("Frame", "SPP_PartyHolder"..i, E.UIParent)
-        holder:SetSize(GetPartyFrameSize())
-        holder:SetPoint("CENTER", UIParent, "CENTER", 0, 0) -- temporary anchor
-        holders[i] = holder
+        if not holders[i] then
+            local holder = CreateFrame("Frame", "SPP_PartyHolder"..i, E.UIParent)
+            holder:SetPoint("CENTER", UIParent, "CENTER", 0, 0) -- temporary anchor
+            holders[i] = holder
 
-        E:CreateMover(holder, "SPP_PartyHolder"..i.."Mover", ("Party %d"):format(i))
+            E:CreateMover(holder, "SPP_PartyHolder"..i.."Mover", ("Party %d"):format(i))
+        end
+
+        -- Always update the size when called
+        holders[i]:SetSize(GetPartyFrameSize())
     end
-    created = true
 end
 
 -- Re-anchor party buttons to holders when they are actually shown
@@ -147,6 +149,7 @@ function SP:Initialize()
 
     hooksecurefunc(E, "ToggleMovers", function(show)
         if show and SP then
+            ensureHolders()
             SP:HideDefaultPartyMover()
         end
     end)
