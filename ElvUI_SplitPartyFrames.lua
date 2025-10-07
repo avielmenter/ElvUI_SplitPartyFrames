@@ -60,6 +60,11 @@ function SP:Reanchor()
         if btn and holder and btn:IsVisible() then
             btn:ClearAllPoints()
             btn:SetPoint("TOPLEFT", holder, "TOPLEFT", 0, 0)
+        elseif btn and holder then
+            btn:HookScript("OnShow", function()
+                btn:ClearAllPoints()
+                btn:SetPoint("TOPLEFT", holder, "TOPLEFT", 0, 0)
+            end)
         end
     end
 end
@@ -69,6 +74,10 @@ function SP:PLAYER_REGEN_ENABLED()
         applyPending = false
         self:Reanchor()
     end
+end
+
+function SP:GROUP_ROSTER_UPDATE()
+    self:Reanchor()
 end
 
 -- Hide the default party mover
@@ -130,7 +139,7 @@ function SP:Initialize()
     ensureHolders()
 
     self:RegisterEvent("PLAYER_REGEN_ENABLED")
-    self:RegisterEvent("GROUP_ROSTER_UPDATE", "Reanchor")
+    self:RegisterEvent("GROUP_ROSTER_UPDATE")
 
     -- Hook ElvUI party frame updates
     local UF = E:GetModule("UnitFrames", true)
