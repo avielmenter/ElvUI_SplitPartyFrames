@@ -1,4 +1,4 @@
-## Interface: 11200
+## Interface: 11270
 ## Title: |cff1784d1ElvUI|r Split Party Frames
 ## Author: Avi
 ## Version: 1.0.0
