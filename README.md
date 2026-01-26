@@ -3,7 +3,7 @@
 An ElvUI plugin that allows you to position party frames individually, using a distinct mover for each party frame. This overrides ElvUI's default positioning options, which only allow you to stack party frames vertically or horizontally with equal spacing.
 
 ## Features
-- Adds a **"Enable Split Party Frames"** checkbox to the **UnitFrames → Group Units → Party → General → Size and Positions** options panel. This checkbox is enabled by default.  
+- Adds a **"Position Party Frames Individually"** checkbox to the **UnitFrames → Group Units → Party → General → Size and Positions** options panel. This checkbox is enabled by default.  
 - When enabled:
   - Party frames are split into separate movable frames.
   - Positioning and sorting options in ElvUI's config are disabled to avoid conflicts.
@@ -18,7 +18,7 @@ An ElvUI plugin that allows you to position party frames individually, using a d
 The plugin should be enabled by default after installation, but you can toggle it in the ElvUI config UI.
 - Open the ElvUI configuration (`/ec`).
 - Navigate to **UnitFrames → Group Units → Party → General → Size and Positions**.
-- Toggle the **"Enable Split Party Frames"** option.  
+- Toggle the **"Position Party Frames Individually"** option.  
 
 ## Usage
 - Click **Movers** at the top of the ElvUI Config window, and position the movers for each party frame individually.
